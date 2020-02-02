@@ -1,4 +1,4 @@
-package com.dj.practise.misc.amazon;
+package com.dj.practise.leetcode.others;
 
 import java.util.ArrayList;
 import java.util.Arrays;

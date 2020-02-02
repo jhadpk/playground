@@ -1,4 +1,4 @@
-package com.dj.practise.misc.google;
+package com.dj.practise.leetcode.others;
 
 import java.util.Collections;
 import java.util.HashMap;

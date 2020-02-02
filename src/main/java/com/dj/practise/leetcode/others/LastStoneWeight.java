@@ -1,4 +1,4 @@
-package com.dj.practise.misc.google;
+package com.dj.practise.leetcode.others;
 
 /**
  * @author deepakjha on 1/14/20
