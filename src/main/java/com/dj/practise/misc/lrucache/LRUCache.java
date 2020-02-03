@@ -42,10 +42,10 @@ public class LRUCache {
         if (itemsInCache == 0) {
             itemsInCache++;
         } else if (itemsInCache == capacity && !cacheMap.containsKey(memoryBlock.key)) {
-            MemoryBlock lruNode = tail.left;
-            MemoryBlock newLruNode = lruNode.left;
-            newLruNode.right = tail;
-            tail.left = newLruNode;
+            MemoryBlock lruLastNode = tail.left;
+            MemoryBlock newLruLastNode = lruLastNode.left;
+            newLruLastNode.right = tail;
+            tail.left = newLruLastNode;
         } else {
             if (null != cacheMap.get(memoryBlock.key)) {
                 MemoryBlock currentNode = cacheMap.get(memoryBlock.key);
