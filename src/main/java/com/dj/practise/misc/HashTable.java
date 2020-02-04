@@ -70,7 +70,7 @@ public class HashTable {
 
     public void remove(final String key) {
         int index = key.hashCode() % ARR_SIZE;
-        LinkedList<HashTableObject> list = arr[ARR_SIZE];
+        LinkedList<HashTableObject> list = arr[index];
 
         if (list == null || list.size() == 0) {
             return;

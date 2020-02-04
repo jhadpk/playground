@@ -23,8 +23,6 @@ public class ConstructBinaryTreeFromInorderPostorder {
         if (start > end) return null;
         TreeNode node = new TreeNode(postorder[postIndex--]);
 
-        if (start == end) return node;
-
         int index = findIndexInInorder(inorder, start, end, node.val);
 
         node.right = build(inorder, postorder, index+1, end);

@@ -18,6 +18,18 @@ public class HashMapSort {
         hashMap.put("x", "qwe");
         hashMap.put("o", "hfg");
 
+
+
+        Iterator<Map.Entry<String, String>> iterator = hashMap.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<String, String> entry = iterator.next();
+            System.out.println(entry.getKey() + " : " + entry.getValue() );
+        }
+        System.out.println();
+        System.out.println("________________________");
+        System.out.println();
+
+
         //Sorting By Keys Ascending Order
         System.out.println("Sorting By Keys Ascending Order");
         Map<String, String> sortByKey = new TreeMap<>(hashMap);
@@ -31,16 +43,14 @@ public class HashMapSort {
 
         //Sorting By Keys Descending Order
         System.out.println("Sorting By Keys Descending Order");
-        Map<String, String> sortByKeyDesc = new TreeMap<>(hashMap);
-        List<Map.Entry<String, String>> sortedList = new ArrayList<>(sortByKeyDesc.entrySet());
-        Comparator<Map.Entry<String, String>> descKey = new Comparator<Map.Entry<String, String>>() {
+        Map<String, String> sortByKeyDesc = new TreeMap<>(new Comparator<String>() {
             @Override
-            public int compare(Map.Entry<String, String> o1, Map.Entry<String, String> o2) {
-                return o2.getKey().compareTo(o1.getKey());
+            public int compare(String o1, String o2) {
+                return o2.compareTo(o1);
             }
-        };
-        sortedList.sort(descKey);
-        for (Map.Entry<String, String> entry : sortedList) {
+        });
+        sortByKeyDesc.putAll(hashMap);
+        for (Map.Entry<String, String> entry : sortByKeyDesc.entrySet()) {
             System.out.println(entry.getKey() + " : " + entry.getValue());
         }
 

@@ -23,16 +23,21 @@ public class LastStoneWeight {
 
         int[][] dp = new int[stones.length+1][target+1];
 
+        //0-1 knapsack
         for (int i = 1; i <= stones.length; i++) {
             for (int j = 1; j <= target; j++) {
                 if (j < stones[i-1]) {
-                    dp[i][j] = dp[i - 1][j];
+                    dp[i][j] = dp[i - 1][j]; //weight of ith (index is i-1) stone is greater than target, so its not chosen
                 } else {
-                    dp[i][j] = Math.max(stones[i-1] + dp[i - 1][j - stones[i-1]], dp[i - 1][j]);
+                    //max (stone i is chosen, stone i is not chosen)
+                    dp[i][j] = Math.max(
+                            //adding stone i's weight, check for i-1th stone and remaining target is j - weight of ith stone
+                            stones[i-1] + dp[i - 1][j - stones[i-1]],
+                            dp[i - 1][j] //ith stone is not chosen
+                    );
                 }
             }
         }
-
         return Math.abs(sum - 2*dp[stones.length][target]);
     }
 }

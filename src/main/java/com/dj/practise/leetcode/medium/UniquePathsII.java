@@ -13,7 +13,7 @@ public class UniquePathsII {
     }
 
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
-        int[][] paths = new int[obstacleGrid.length][obstacleGrid[0].length];
+        int[][] paths = new int[obstacleGrid.length][obstacleGrid[0].length]; //no of ways to reach i,j
         paths[0][0] = obstacleGrid[0][0] == 1 ? 0 : 1;
         for (int j = 1; j < obstacleGrid[0].length; j++) {
             paths[0][j] = obstacleGrid[0][j] == 1 || paths[0][j-1] == 0 ? 0 : 1;

@@ -20,21 +20,22 @@ public class CombinationSum {
 
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
-        Arrays.sort(candidates);
-        getCombinations(candidates, 0, target, new Stack<>(), result);
+        getCombinations(candidates, 0, target, new ArrayList<>(), result);
         return result;
     }
 
-    private void getCombinations(int[] candidates, int index, int target,  List<Integer> curr, List<List<Integer>> result) {
-        if (target < 0) return;
-        else if (target == 0){
-            result.add(new ArrayList<>(curr));
-        } else {
-            for (int i = index; i < candidates.length; i++) {
-                curr.add(candidates[i]);
-                getCombinations(candidates, i, target - candidates[i], curr, result);
-                curr.remove(curr.size() - 1);
-            }
+    private void getCombinations(int[] candidates, int index, int target, List<Integer> list, List<List<Integer>> result) {
+        if (target < 0) {
+            return;
+        } else if (target == 0) {
+            result.add(new ArrayList<>(list));
+            return;
+        }
+
+        for (int i = index; i < candidates.length; i++) {
+            list.add(candidates[i]);
+            getCombinations(candidates, i, target - candidates[i], list, result);
+            list.remove(list.size() - 1);
         }
     }
 }

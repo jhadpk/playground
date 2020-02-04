@@ -2,6 +2,7 @@ package com.dj.practise.leetcode.medium;
 
 import com.dj.practise.leetcode.helpers.TreeNode;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.PriorityQueue;
 import java.util.Set;
@@ -29,7 +30,12 @@ public class KthSmallestBST {
 
     public int kthSmallest(TreeNode root, int k) {
         //maxHeap
-        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>((o1, o2) -> o2 - o1);
+        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o2 - o1;
+            }
+        });
         findKthSmallest(root, k, priorityQueue, new HashSet<>());
         return priorityQueue.peek() != null ? priorityQueue.peek() : -1;
     }

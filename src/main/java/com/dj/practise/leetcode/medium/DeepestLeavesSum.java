@@ -18,30 +18,18 @@ public class DeepestLeavesSum {
     }
 
     public int deepestLeavesSum(TreeNode root) {
-        Map<Integer, List<TreeNode>> map = new HashMap<>();
+        Map<Integer, Integer> map = new TreeMap<>((o1, o2) -> o2 - o1);
 
         setDepthMap(root, map, 0);
 
-
-        Comparator<Map.Entry<Integer, List<TreeNode>>> comparator = (o1, o2) -> o2.getKey() - o1.getKey();
-        List<Map.Entry<Integer, List<TreeNode>>> sorted = new ArrayList<>(map.entrySet());
-        sorted.sort(comparator);
-
-        List<TreeNode> deepestNodes = sorted.get(0).getValue();
-        int sum = 0;
-        for (TreeNode node : deepestNodes) {
-            sum += node.val;
-        }
-        return sum;
+        return map.entrySet().iterator().next().getValue();
     }
 
-    private void setDepthMap(TreeNode root, Map<Integer, List<TreeNode>> map, int depth) {
+    private void setDepthMap(TreeNode root, Map<Integer, Integer> map, int depth) {
         if (root == null) return;
 
         if (root.left == null && root.right == null) {
-            List<TreeNode> value = map.containsKey(depth) ? map.get(depth) : new ArrayList<>();
-            value.add(root);
-            map.put(depth, value);
+            map.put(depth, map.getOrDefault(depth, 0) + root.val);
         }
 
         setDepthMap(root.left, map, depth + 1);

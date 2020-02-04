@@ -23,9 +23,6 @@ public class ConstructBinaryTreeFromInorderPreorder {
         if (start > end) return null;
 
         TreeNode node = new TreeNode(preorder[preIndex++]);
-        if (start == end) {
-            return node;
-        }
 
         int inindex = findIndexInInOrder(inorder, start, end, node.val);
 

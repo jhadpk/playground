@@ -12,17 +12,29 @@ public class MinimumSwapsIncreasing {
     }
 
     public int minSwap(int[] A, int[] B) {
-        int swaps = 0;
-        for (int i = A.length - 1; i >= 0; i--) {
-            for (int j = 0; j < i; j++) {
-                if (A[j] > A[i] || B[j] > B[i]) {
-                    int temp = A[i];
-                    A[i] = B[i];
-                    B[i] = temp;
-                    swaps++;
-                }
+        int[] noSwap = new int[A.length];
+        int[] swap = new int[A.length];
+
+        noSwap[0] = 0;
+        swap[0] = 1;
+
+        for (int i = 1; i < A.length; i++) {
+            noSwap[i] = Integer.MAX_VALUE;
+            swap[i] = Integer.MAX_VALUE;
+
+            if (A[i] > A[i-1] && B[i] > B[i-1]) {
+                noSwap[i] = noSwap[i-1]; //since the ith index is in correct order, so noswap[i] will have same value as i-1
+                swap[i] = swap[i-1] + 1; //if i-1th index was swapped then we need to swap it back - hence swap[i-1]+1
+            }
+
+            //now noswap and swap for ith index would be set if previous condn is satisfied
+            if (A[i] > B[i-1] && B[i] > A[i-1]) {
+                //we can swap ith index
+                noSwap[i] = Math.min(noSwap[i], swap[i-1]); //if i-1th index was swapped it brings array in this form, hence use swap[i-1]
+                swap[i] = Math.min(swap[i], noSwap[i-1] + 1); //add 1 to noswap[i-1] as we can swap i
             }
         }
-        return swaps;
+
+        return Math.min(noSwap[A.length - 1], swap[A.length - 1]);
     }
 }
