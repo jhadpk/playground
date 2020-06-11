@@ -1,0 +1,34 @@
+inject:
+Using @Inject, AbstractModule, bind()
+
+
+implementedBy:
+Using @ImplementedBy rather than manual binding an inteface to an implementation.
+
+
+provides:
+@Provides - if we dont have any dependency included from external source and if the logic to select the impl can be put at a single place.
+No need to explicitly bind the dependency
+
+
+providedBy:
+@ProvidedBy - similar to @ImeplementedBy, we specify the ProviderFactory class.
+
+
+implicitProvider:
+Provider gets injected.
+There is late instantiation of Provider.
+No need to bind in abstract module.
+
+
+explicitProvider:
+Using explicit Provider implementation.
+
+
+mapbinder
+used to have a map of bindings with integer/anyOtherDataType.
+
+
+providerFactory:
+Use to create a providerFactory, which could provide the dependency on the fly, depending upon the condition.
+DiscountFactoryImpl is the providerFactory. No need to use get().
