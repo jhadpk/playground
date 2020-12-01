@@ -16,14 +16,26 @@ public class DiscountProvider implements Provider<Discountable> {
 
     @Override
     public Discountable get() {
+
+
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> System.out.println("hook shutdown"))
+
+        
+        );
+
+
         int hour = LocalTime.now().getHour();
-        System.out.println("Time of day : " +  hour);
+        System.out.println("Time of day : " + hour);
         if (isBigDiscount(hour)) {
             return new BigDiscount();
         } else {
             return new SmallDiscount();
         }
+
+
+
     }
+
 
     private boolean isBigDiscount(int hour) {
         return (hour >= 0 && hour < 8) || (hour > 20 && hour <= 23);

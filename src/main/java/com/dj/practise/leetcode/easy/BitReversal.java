@@ -7,6 +7,11 @@ package com.dj.practise.leetcode.easy;
 public class BitReversal {
     //https://leetcode.com/problems/reverse-bits/
 
+
+    public static void main(String[] args) {
+        System.out.println(new BitReversal().reverseBits(4));
+    }
+
     // you need treat n as an unsigned value
     public int reverseBits(int n) {
         int answer = 0;

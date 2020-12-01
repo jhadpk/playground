@@ -14,6 +14,9 @@ public class MainClass {
         Injector guice = Guice.createInjector(new DiscountAbstractModule());
         DiscountService discountService = guice.getInstance(DiscountService.class);
 
-        System.out.println(discountService.getDiscount(100));
+        discountService.printHello();
+        //discountService.printWorld();
+
+        //System.out.println(discountService.getDiscount(100));
     }
 }

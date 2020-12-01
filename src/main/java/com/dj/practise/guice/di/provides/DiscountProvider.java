@@ -12,6 +12,8 @@ import java.time.LocalTime;
  * @author deepakjha on 6/11/20
  * @project bigtext
  */
+
+//NOT NEEDED IN THIS IMPLEMENTATION TYPE OF PROVIDES
 public class DiscountProvider implements Provider<Discountable> {
 
     @Override

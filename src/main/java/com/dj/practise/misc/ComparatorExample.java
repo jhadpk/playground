@@ -28,11 +28,5 @@ public class ComparatorExample {
         for (Student s : students) {
             System.out.println(s.rollNo);
         }
-
-
-
-
-
-
     }
 }

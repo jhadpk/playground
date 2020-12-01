@@ -19,7 +19,6 @@ public class HashMapSort {
         hashMap.put("o", "hfg");
 
 
-
         Iterator<Map.Entry<String, String>> iterator = hashMap.entrySet().iterator();
         while (iterator.hasNext()) {
             Map.Entry<String, String> entry = iterator.next();
@@ -82,7 +81,7 @@ public class HashMapSort {
         System.out.println();
 
 
-        //Sorting By Value Ascending Order
+        //Sorting By Value Descending Order
         System.out.println("Sorting By Value Descending Order");
         Map<String, String> sortByValueDesc = new LinkedHashMap<>();
         Comparator<Map.Entry<String, String>> descValue = new Comparator<Map.Entry<String, String>>() {
