@@ -1,7 +1,7 @@
-package com.dj.practise.guice.di.suzaninject;
+package com.dj.practise.guice.di.practise;
 
 
-import com.dj.practise.guice.di.suzaninject.api.HemingwayAdapter;
+import com.dj.practise.guice.di.practise.api.HemingwayAdapter;
 
 import javax.inject.Inject;
 

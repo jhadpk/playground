@@ -1,7 +1,6 @@
-package com.dj.practise.guice.di.suzaninject;
+package com.dj.practise.guice.di.practise;
 
-import com.dj.practise.guice.di.suzaninject.api.HemingwayAdapter;
-import lombok.RequiredArgsConstructor;
+import com.dj.practise.guice.di.practise.api.HemingwayAdapter;
 
 import javax.inject.Inject;
 
@@ -11,10 +10,15 @@ import javax.inject.Inject;
  * @project inmobi-rtb-validator
  */
 
-@RequiredArgsConstructor(onConstructor = @__(@Inject))
+
 public class GrammarBuilder {
 
     private final HemingwayAdapter hemingwayAdapter;
+
+    @Inject
+    public GrammarBuilder(HemingwayAdapter hemingwayAdapter) {
+        this.hemingwayAdapter = hemingwayAdapter;
+    }
 
     public void builderMethod() {
         System.out.println("HemingwayAdapter hashcode in Grammar Builder : " + hemingwayAdapter.hashCode());

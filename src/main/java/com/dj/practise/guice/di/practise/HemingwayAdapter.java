@@ -1,4 +1,4 @@
-package com.dj.practise.guice.di.suzaninject.api;
+package com.dj.practise.guice.di.practise.api;
 
 import lombok.Setter;
 

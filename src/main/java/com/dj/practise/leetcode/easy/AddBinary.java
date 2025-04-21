@@ -7,7 +7,6 @@ package com.dj.practise.leetcode.easy;
 public class AddBinary {
     //https://leetcode.com/problems/add-binary/
 
-
     public static void main(String[] args) {
         System.out.println(new AddBinary().addBinary("11", "1"));
     }
